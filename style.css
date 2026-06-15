@@ -1,0 +1,350 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #000;
+    color: white;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* =========================
+   BACKGROUND EFFECTS
+========================= */
+
+.stars,
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* Galaxy stars */
+.stars {
+    background:
+    radial-gradient(white 1px, transparent 1px);
+    background-size: 25px 25px;
+    opacity: .3;
+}
+
+
+/* Floating hearts */
+.hearts::before {
+    content: "❤️ ❤️ ❤️ ❤️ ❤️ ❤️";
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    opacity: .25;
+
+    animation:
+    float 15s linear infinite;
+}
+
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
+#loader {
+    position: fixed;
+    inset: 0;
+
+    background: #000;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+
+.heart {
+    font-size: 5rem;
+
+    animation:
+    heartbeat 1.2s infinite;
+}
+
+
+#loader h1 {
+    font-family:
+    'Pacifico', cursive;
+
+    font-size: 2rem;
+}
+
+
+#loader p {
+    margin-top: 10px;
+    color: #bbb;
+}
+
+
+/* =========================
+   MEMORY FEED
+========================= */
+
+#gallery {
+    width: 100%;
+}
+
+
+/* Each memory card */
+.memory {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    scroll-snap-align: start;
+}
+
+
+/* Photos and videos */
+.memory img,
+.memory video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* Dark overlay */
+.memory::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,.85),
+        transparent 40%
+    );
+}
+
+
+/* =========================
+   CAPTIONS
+========================= */
+
+.caption {
+    position: absolute;
+
+    bottom: 90px;
+    left: 20px;
+    right: 20px;
+
+    z-index: 5;
+
+    text-shadow:
+    0 0 15px black;
+
+    animation:
+    fadeUp 1s ease;
+}
+
+
+/* Different font styles */
+
+.font-love {
+    font-family:
+    "Pacifico",
+    cursive;
+}
+
+
+.font-dream {
+    font-family:
+    "Dancing Script",
+    cursive;
+}
+
+
+.font-royal {
+    font-family:
+    "Playfair Display",
+    serif;
+}
+
+
+.font-modern {
+    font-family:
+    "Poppins",
+    sans-serif;
+}
+
+
+.caption h2 {
+    font-size: 2rem;
+}
+
+
+.caption p {
+    margin-top: 8px;
+    font-size: 1rem;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    position: fixed;
+
+    bottom: 20px;
+    width: 100%;
+
+    text-align: center;
+
+    z-index: 20;
+
+    font-size: 1rem;
+
+    text-shadow: 0 0 10px black;
+}
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+#music-btn {
+    position: fixed;
+
+    right: 20px;
+    bottom: 90px;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+    border: none;
+
+    background:
+    rgba(255,255,255,.2);
+
+    backdrop-filter:
+    blur(10px);
+
+    color: white;
+
+    font-size: 1.5rem;
+
+    z-index: 50;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+@keyframes float {
+
+    from {
+        transform:
+        translateY(100vh);
+    }
+
+    to {
+        transform:
+        translateY(-150px);
+    }
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform:
+        translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+        translateY(0);
+    }
+
+}
+
+
+/* =========================
+   MOBILE REELS SCROLL
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        scroll-snap-type:
+        y mandatory;
+    }
+
+}
+
+
+/* =========================
+   DESKTOP BLOCK
+========================= */
+
+@media (min-width: 700px) {
+
+    body::before {
+
+        content:
+        "📱 Open this memory website on a mobile phone ❤️";
+
+        position: fixed;
+        inset: 0;
+
+        background: black;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        font-size: 2rem;
+
+        z-index: 999999;
+    }
+
+}
