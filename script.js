@@ -8,8 +8,8 @@
    GITHUB SETTINGS
 ========================= */
 
-const USERNAME = "YOUR_GITHUB_USERNAME";
-const REPOSITORY = "YOUR_REPOSITORY_NAME";
+const USERNAME = "data070508";
+const REPOSITORY = "school1";
 
 
 const API =
